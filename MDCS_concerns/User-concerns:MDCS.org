@@ -1,0 +1,88 @@
+
+
+* Bugs , Questions, and concerns
+
+
+** Questions
+
+*** widgets and scripts
+Is it possible to use incorporate UI made schema with widgets via scripts.
+
+
+** Bugs
+*** Faulty Caching
+- *First*) We create a ~user~ defined schema with composer
+- *Second*) We enter data using the WEB-UI
+- *Third*) We enter in an _incorrect_ value into a field (/on purpose/)
+- *Fourth*) we attempt to upload the data
+- *RESULT*) ERROR showing an incorrect value 
+- *BUG*) Despite changing the the value; system maintains error.
+- *Pseudo-FIX*) Uninstalling entire system
+
+*** USER DEFINED schemas API upload failure
+- *First*) We create a ~user~ defined schema with composer
+- *Second*) generate xml-data (/assume correct/ )
+- *Third*) run api command to select schema (I.e title, Id, etc...)
+- *Fourth*) build /payload/ to be uploaded
+- *Fifth*) run api command to upload data
+- *RESULT*) "NO SCHEMA FOUND WITH THIS ID"
+- *BUG*) even after hardcoding the selected schema Id upload fails
+- *Thoughts*) I believe that this due to the ~User~ defined nature of the
+ schema
+
+
+*** Promoting User Defined schema to Global schema
+- *First*) USER A creates a ~user~ defined schema with composer using complex types
+- *Second*) USER B wishes to utilize schemas developed by USER A
+- *Bug*) USER B _cannot_ /see/ USER A developed schemas
+- *Note*) Does this affect the api? (/assuming the api works/)
+
+*** Complex-simple type collisions /for buckets/
+- *First*) create ~complex~ types in oxygen
+- *Second*) upload ~complex types~ using the dash board
+- *Third*) Realized that 2 or more complex types contain identically named
+simple types *but* in different context
+- *Fourth*) build ~user~ defined schema in composer
+- *Bug*) cannot create template because of propert stated in *Third* point
+we believe that a collision of type names occurs.
+
+
+** Concerns
+   
+*** Production Level Server subdirectory
+    Currently we are trying to deploy a production level server but I have a 
+    couple of intial concerns
+    
+    - We have one server. on this server we intend to host ~multiple~ web/network
+    based applications for materials data. So we will be presented with the 
+    following instance:
+    
+    --Servername: materials.mat.tamu.edu
+    
+    so we want have a setup like the following 
+
+    --Website 1 --> materials.mat.tamu.edu/homepage
+
+    --Website 2 --> materials.mat.tamu.edu/gitlab
+
+    --Website 3 --> materials.mat.tamu.edu/MSGalaxy
+
+    --Website 4 --> materials.mat.tamu.edu/MDCS
+
+    so the problem is that there is not .ini or .cfg file that would change all 
+    the hardcoded html ref="/" to ref="\//MDCS/" as a subdirectory hosted on
+    an apache instance. same is true for redirects
+
+    we were able to use "sed" command to replace some of the them and acheived 
+    some function of mdcs and begun to play around with a configuration program
+    of our own.
+
+*** Leaving debug Mode
+
+    Inside of the settings.py there are different means of deploying Django 
+    depending on if you are debuging or on production level
+
+    One notable difference is the implementation of HTTPS and postgres. I was
+    able to make some changes. but a standard git branch or set of instructions
+    will have to be addresed at some point
+      

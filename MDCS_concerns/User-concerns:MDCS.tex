@@ -1,0 +1,143 @@
+% Created 2015-12-01 mar 08:31
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{soul}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\providecommand{\alert}[1]{\textbf{#1}}
+
+\title{User-concerns:MDCS}
+\author{danielsauceda}
+\date{\today}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={Emacs Org-mode version 7.9.3f}}
+
+\begin{document}
+
+\maketitle
+
+\setcounter{tocdepth}{3}
+\tableofcontents
+\vspace*{1cm}
+
+
+\section{Bugs , Questions, and concerns}
+\label{sec-1}
+\subsection{Questions}
+\label{sec-1-1}
+\subsubsection{widgets and scripts}
+\label{sec-1-1-1}
+
+Is it possible to use incorporate UI made schema with widgets via scripts.
+\subsection{Bugs}
+\label{sec-1-2}
+\subsubsection{Faulty Caching}
+\label{sec-1-2-1}
+
+\begin{itemize}
+\item \textbf{First}) We create a \verb~user~ defined schema with composer
+\item \textbf{Second}) We enter data using the WEB-UI
+\item \textbf{Third}) We enter in an \underline{incorrect} value into a field (\emph{on purpose})
+\item \textbf{Fourth}) we attempt to upload the data
+\item \textbf{RESULT}) ERROR showing an incorrect value
+\item \textbf{BUG}) Despite changing the the value; system maintains error.
+\item \textbf{Pseudo-FIX}) Uninstalling entire system
+\end{itemize}
+\subsubsection{USER DEFINED schemas API upload failure}
+\label{sec-1-2-2}
+
+\begin{itemize}
+\item \textbf{First}) We create a \verb~user~ defined schema with composer
+\item \textbf{Second}) generate xml-data (\emph{assume correct} )
+\item \textbf{Third}) run api command to select schema (I.e title, Id, etc\ldots{})
+\item \textbf{Fourth}) build \emph{payload} to be uploaded
+\item \textbf{Fifth}) run api command to upload data
+\item \textbf{RESULT}) ``NO SCHEMA FOUND WITH THIS ID''
+\item \textbf{BUG}) even after hardcoding the selected schema Id upload fails
+\item \textbf{Thoughts}) I believe that this due to the \verb~User~ defined nature of the
+ schema
+\end{itemize}
+\subsubsection{Promoting User Defined schema to Global schema}
+\label{sec-1-2-3}
+
+\begin{itemize}
+\item \textbf{First}) USER A creates a \verb~user~ defined schema with composer using complex types
+\item \textbf{Second}) USER B wishes to utilize schemas developed by USER A
+\item \textbf{Bug}) USER B \underline{cannot} \emph{see} USER A developed schemas
+\item \textbf{Note}) Does this affect the api? (\emph{assuming the api works})
+\end{itemize}
+\subsubsection{Complex-simple type collisions \emph{for buckets}}
+\label{sec-1-2-4}
+
+\begin{itemize}
+\item \textbf{First}) create \verb~complex~ types in oxygen
+\item \textbf{Second}) upload \verb~complex types~ using the dash board
+\item \textbf{Third}) Realized that 2 or more complex types contain identically named
+\end{itemize}
+simple types \textbf{but} in different context
+\begin{itemize}
+\item \textbf{Fourth}) build \verb~user~ defined schema in composer
+\item \textbf{Bug}) cannot create template because of propert stated in \textbf{Third} point
+\end{itemize}
+we believe that a collision of type names occurs.
+\subsection{Concerns}
+\label{sec-1-3}
+
+   
+\subsubsection{Production Level Server subdirectory}
+\label{sec-1-3-1}
+
+    Currently we are trying to deploy a production level server but I have a 
+    couple of intial concerns
+    
+\begin{itemize}
+\item We have one server. on this server we intend to host \verb~multiple~ web/network
+\end{itemize}
+    based applications for materials data. So we will be presented with the 
+    following instance:
+    
+    --Servername: materials.mat.tamu.edu
+    
+    so we want have a setup like the following 
+
+    --Website 1 --> materials.mat.tamu.edu/homepage
+
+    --Website 2 --> materials.mat.tamu.edu/gitlab
+
+    --Website 3 --> materials.mat.tamu.edu/MSGalaxy
+
+    --Website 4 --> materials.mat.tamu.edu/MDCS
+
+    so the problem is that there is not .ini or .cfg file that would change all 
+    the hardcoded html ref=''/'' to ref=''\//MDCS/'' as a subdirectory hosted on
+    an apache instance. same is true for redirects
+
+    we were able to use ``sed'' command to replace some of the them and acheived 
+    some function of mdcs and begun to play around with a configuration program
+    of our own.
+\subsubsection{Leaving debug Mode}
+\label{sec-1-3-2}
+
+
+    Inside of the settings.py there are different means of deploying Django 
+    depending on if you are debuging or on production level.
+
+    One notable difference is the implementation of HTTPS and postgres. I was
+    able to make some changes. But a standard git branch or set of instructions
+    will have to be addresed at some point.
+      
+
+\end{document}
