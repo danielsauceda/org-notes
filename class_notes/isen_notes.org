@@ -1,0 +1,132 @@
+* FINAL
+** CHAPTER 1
+   + Time Value of Money
+   + Cash Flow Diagrams
+     + Draw a CF diagram
+** CHAPTER 2
+   + Recognition and conversion of cash flows
+   + Shifted Series
+** CHAPTER 3
+** CHAPTER 4 & 5
+*** TYPE of Alternatives 
+    single Project
+    If PW/AW/FW at MARR >= 0, *ACCEPT*
+    
+*** SOme Definintions (VERY IMPORTANT
+    - Capitalized worth
+      \begin{equation}
+       (CW)-  CW= \frac{AW}{i}
+      \end{equation}
+   -  COST (CC)- 
+    
+   - Present worth of \infty lives
+
+** CHAPTER 6: Rates of Return (going to have to read)
+   
+  - *Internal Rate of Return* (IRR) is _not_ always unique.
+  - *External Rate of Return* (ERR) is _always_ always unique.
+  
+    These two are not ranking methods.   ??? What does that mean
+    
+    When analyzing several alternatives, and incremental approach is applied
+    
+    Conclusions from PW/AW/FW/B/C GIVE The _SAME_ result.
+
+*** INcremental IRR/ERR Analysis 
+    These are the steps required to do an IRR/ERR Analysis
+
+    1) Order the alternatives (two alternatives) by the _initial_ investment
+     
+    2) Develop the incremental cash flow series. Draw an _icremental_ cash flow diagram, if needed.
+
+
+    ??? what is an incremental cash flow diagram
+
+    3) Find the Incremenal rate of reutn for this series, term it \Delta i^{*}
+
+    4) Select the better one
+       + If \Delta i^{*}_{B-A} < MARR then select A
+       + If \Delta i^{*}_{B-A} >= MARR then select B    
+       
+** CHAPTER 8: Depreciation
+*** Concepts
+    - Depreciation in _not_ cashflow
+    - it _is_ Deducted from teh taxable income
+    - Decreases tax magnitud (Ch.9)
+
+*** Depreciation Methods
+    - Straight Line SL (THE SAME AMOUNT EVERY YEAR)
+    - DECLING BALANCE (DB): accelerated write-off
+      \begin{equation}
+    - MACRS----- P= \frac{2}{n}
+      \end{equation}
+
+*** Summary of Depreciation Method Relations
+
+    |-------------------------+--------------------------------------------------------+-----------------+-------------|
+    | Method                  | SL                                                     | DB              | MACRS       |
+    |-------------------------+--------------------------------------------------------+-----------------+-------------|
+    |                         |                                                        |                 |             |
+    |                         |                                                        |                 |             |
+    | Depreciation rate p     | \[ \begin{equationk} $\frac{1}{n} $ \end{equation} \]  | 1/n, 1.5/n,     | Varies per  |
+    |                         | \[ $ \frac{1}{n} $ \]                                  | 1/n, 1.5/n,     | Varies per  |
+    |                         |                                                        | 2/n             | year        |
+    |-------------------------+--------------------------------------------------------+-----------------+-------------|
+    |                         |                                                        |                 |             |
+    | Annual depreciation d_t | (P-F)p=                                                | (B_{t-1})p=     | P_t*P       |
+    |                         | (P - F) / n                                            | \=P(1-p)^{t-1}p |             |
+    |-------------------------+--------------------------------------------------------+-----------------+-------------|
+    |                         |                                                        | B_{t-1}-d_t=    | B_{t-1}-d_t |
+    | Book value B_t          | B_{t-1}-d_t                                            | P(1 - p)^t      |             |
+    |-------------------------+--------------------------------------------------------+-----------------+-------------|
+
+    + *SL:* BV dcreases by a _constant amount_ annually.
+    + *DB:* BV dcreases by a _constant percentage_ annually.
+    + *MACRS:* BV dcreases by a _various percentage_ annually.
+      
+*** WORK OUT EXAMPLES
+    TODO
+** CHAPTER 9
+*** Corporate Income Tax Rates   
+    + VIEW TABLE 9.1
+    
+    + Effective Tax Rate (or averaged tax rate)
+      + The income tax divided by the taxable income.
+    + Incremental Tax Rate
+      + The incremental income tax divided by the incremental investment.
+    + Marginal Tax Rate
+      + The tax rate that will apply to the last dollar included in taxable income.
+
+    EXAMPLES
+
+*** BTCF and ATCF Analysis
+    + Before Tax Cash Flow --- BTCF:
+      + _ALL_ the cash flows _except_ ~taxes~ and ~loan~ payment
+    + After Tax Cash Flow --- ATCF:
+      +ATCF = BTCF -Tax - Loan Payment
+
+    Loan Payment = Principal Payment + Interest Payment
+
+    Tax= Taxable Income * (tax-rate)
+
+    Taxable Income =
+    = BTCF -Depreciation - Loan Interest Payment
+
+** CHAPTER 11: Break Even Analysis
+*** Break-Even Analysis
+   + Break-Even Analysis
+     + A method ?????
+   + Break-Even Value
+     + The value of a parameter at whoch the measure of economic worth equates to zero
+       ????
+   + EXAMPLE
+
+*** Sensitivity Analysis
+    + A method used to determine the impact on the measure of economic worth when values of ~one or more parameters~ vary over specified ranges.
+***  Break-Even Analysis
+    + incorporates explicityly random variation in one or more parameters
+    
+    + Then  finds a risk measure (PW/AW/FW)
+    
+    + Or/and, finds the probaility of economic worth to be greater than 0 ( or IRR/ERR > MARR)
+      
